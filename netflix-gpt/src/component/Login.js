@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidData } from '../utils/validate'
-
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import {auth} from '../utils/firebase'
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, seterrorMessage] = useState(null);
@@ -12,6 +13,39 @@ const Login = () => {
     const handleButton = ()=>{
         const message = checkValidData(email.current.value, password.current.value);
         seterrorMessage(message);
+        if (message) return;
+        if (isSignInForm)
+        {
+           signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+             .then((userCredential) => {
+               // Signed in
+               const user = userCredential.user;
+               // ...
+             })
+             .catch((error) => {
+               const errorCode = error.code;
+                 const errorMessage = error.message;
+                 seterrorMessage(errorMessage+" "+errorCode)
+             }); 
+
+
+        }
+        else
+        {
+            createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+              .then((userCredential) => {
+                // Signed up
+                const user = userCredential.user;
+                // ...
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                seterrorMessage(errorCode+" "+errorMessage)
+                // ..
+              });
+
+            }
     }
     const toggleSignInForm = () => {
         setIsSignInForm(!isSignInForm)
@@ -53,7 +87,7 @@ const Login = () => {
 
               <p className='p-4 text-red-700'>{errorMessage}</p>
 
-              
+
               <button className="p-4 my-6 bg-red-700 w-full rounded-lg"
               onClick={handleButton}
               >
