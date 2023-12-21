@@ -1,9 +1,8 @@
 import "./app.css"
+import Body from "./component/Body";
 function App() {
   return (
-    <div className="text-3xl font-bold text-green-400">
-    amit
-    </div>
+    <Body/>
   );
 }
 
