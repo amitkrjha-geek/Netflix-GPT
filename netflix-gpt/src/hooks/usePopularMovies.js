@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export const usePopularMovies = () => {
     const dispatch = useDispatch();
-    const popularMovies = useSelector((store) => store.movies.popularMovies);
+    const popularMovies = useSelector((store) => store.movies?.popularMovies);
 
     const getPopularMovies = async () => {
         const data = await fetch(

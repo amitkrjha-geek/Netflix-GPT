@@ -44,28 +44,24 @@ const Header = () => {
     []);
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-row justify-between">
-      <img
-        className="w-44"
-        src={logo}
-        alt="logo"
-      />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={logo} alt="logo" />
       {user && (
-        <div className='flex p-2'>
-      <img
-        className="hidden md:block w-12 h-12 mx-2 my-2"
-        alt="usericon"
-        src={user?.photoURL}
-      />
-      <button onClick={handleSignOut} className="font-bold text-white  mx-2 bg-red">
-        Sign Out
+        <div className="flex flex-row p-2">
+          <img
+            className="hidden md:block w-12 h-12 mx-2 my-2"
+            alt="usericon"
+            src={user?.photoURL}
+          />
+          <button
+            onClick={handleSignOut}
+            className="font-bold  w-20 bg-white h-12 mx-2 my-2text-red"
+          >
+            Sign Out
           </button>
-          </div>
+        </div>
       )}
     </div>
-  
-
-
   );
 }
 
