@@ -19,6 +19,7 @@ const GptSearchBar = () => {
    const json = await data.json();
 
    return json.results;
+   
  };
   const handleGptSearchClick = async () => {
     const gptQuery =
@@ -30,12 +31,13 @@ const GptSearchBar = () => {
        messages: [{ role: "user", content: gptQuery }],
        model: "gpt-3.5-turbo",
      });
-    
+  
     if (!gptResults.choices) {
          
       navigate("/browse");
     }
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+      
 
     // ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Jaane Bhi Do Yaaro", "Padosan"]
 
@@ -45,7 +47,13 @@ const GptSearchBar = () => {
     // [Promise, Promise, Promise, Promise, Promise]
 
     const tmdbResults = await Promise.all(promiseArray);
-    disptach(addMoviesResults({ gptMoviesResults:gptMovies, serachResults:tmdbResults }));
+   // console.log(tmdbResults);
+    disptach(
+      addMoviesResults({
+        gptMoviesResults: gptMovies,
+        searchMoviesResults: tmdbResults,
+      })
+    );
   
      
   }
