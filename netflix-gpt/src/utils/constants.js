@@ -4,11 +4,11 @@ export const logo =
 export const userAvatar = "https://avatars.githubusercontent.com/u/70425790?v=4"
 
 export const API_OPTIONS = {
-    method: 'GET',
+  method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer '+ process.env.REACT_APP_TMDB_KEY,
-  },
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MmJjZjFiYTdiNzBjNmY0YTU1MDNiNWI1NTEwMjgwZCIsInN1YiI6IjY1ODU3NzU0NDNjZDU0NTVhNTNiZjNmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uFKrsGPJ2-k29I-_L3Yd-7g28AVcBnFcDzw__gvCvVU'
+  }
 }
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
