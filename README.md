@@ -1,4 +1,9 @@
 # Netflix GPT Movie Web Application
+![GitHub repo size](https://img.shields.io/github/repo-size/amitkrjha-geek/Netflix-GPT)
+![GitHub issues](https://img.shields.io/github/issues/amitkrjha-geek/Netflix-GPT)
+![GitHub contributors](https://img.shields.io/github/contributors/amitkrjha-geek/Netflix-GPT)
+![GitHub stars](https://img.shields.io/github/stars/amitkrjha-geek/Netflix-GPT)
+![GitHub forks](https://img.shields.io/github/forks/amitkrjha-geek/Netflix-GPT)
 
 This is a web application inspired by Netflix that utilizes React, Tailwind CSS, Redux, and external APIs such as TMDb (The Movie Database), OpenAI, and Firebase authentication to provide users with a platform to browse movies, get recommendations, and interact with a movie database.
 
